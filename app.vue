@@ -15,7 +15,7 @@ import "./styles/app.scss";
     <BentoGrid>
       <BentoCard :background-color="GoldenHour">
         <template #content>
-          <h1>JAMES</h1>
+          <h1><bold>JAMES</bold></h1>
         </template>
       </BentoCard>
       <BentoCard :background-color="Charcoal">
@@ -40,10 +40,16 @@ import "./styles/app.scss";
 h1 {
   color: v-bind("Gunmetal");
   text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
 }
 
 h2 {
   color: v-bind("Birch");
   text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
 }
 </style>
