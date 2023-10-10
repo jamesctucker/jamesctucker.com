@@ -1,0 +1,8 @@
+@use "variables_colors";
+
+:export {
+  Gunmetal: variables_colors.$gunmetal;
+  Charcoal: variables_colors.$charcoal;
+  GoldenHour: variables_colors.$golden-hour;
+  Birch: variables_colors.$birch;
+}
