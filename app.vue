@@ -1,6 +1,7 @@
 <script setup>
 import BentoCard from "./components/BentoCard.vue";
 import BentoGrid from "./components/BentoGrid.vue";
+import LinkCard from "./components/LinkCard.vue";
 import {
   Birch,
   GoldenHour,
@@ -8,14 +9,27 @@ import {
   Gunmetal,
 } from "./styles/variables.module.scss";
 import "./styles/app.scss";
+const links = [
+  {
+    title: "GitHub",
+    url: "https://github.com",
+  },
+  {
+    title: "LinkedIn",
+    url: "https://linkedin.com",
+  },
+  {
+    title: "Twitter",
+    url: "https://twitter.com",
+  },
+];
 </script>
-
 <template>
-  <div>
+  <div class="app">
     <BentoGrid>
       <BentoCard :background-color="GoldenHour">
         <template #content>
-          <h1><bold>JAMES</bold></h1>
+          <h1><bold>Hi, I'm James.</bold></h1>
         </template>
       </BentoCard>
       <BentoCard :background-color="Charcoal" padding="0">
@@ -25,29 +39,25 @@ import "./styles/app.scss";
       </BentoCard>
       <BentoCard :background-color="Charcoal">
         <template #content>
-          <h2>IS A</h2>
-        </template>
-      </BentoCard>
-      <BentoCard :background-color="Charcoal">
-        <template #content>
-          <h2>SOFTWARE ENGINEER</h2>
-        </template>
-      </BentoCard>
-      <BentoCard :background-color="Charcoal">
-        <template #content>
-          <h2>IN</h2>
+          <h2>Software Engineer</h2>
         </template>
       </BentoCard>
       <BentoCard :background-color="GoldenHour">
         <template #content>
-          <h2 class="location">MINNESOTA</h2>
+          <h2 class="location">📌 Minnesota</h2>
         </template>
       </BentoCard>
-      <BentoCard :background-color="Charcoal">
-        <template #content>
-          <h2>"To be or not to be, that is the question."</h2>
-        </template>
-      </BentoCard>
+    </BentoGrid>
+    <BentoGrid>
+      <LinkCard
+        v-for="link in links"
+        :title="link.title"
+        :url="link.url"
+        :background-color="Charcoal"
+        :text-color="Birch"
+      />
+    </BentoGrid>
+    <BentoGrid>
       <BentoCard :background-color="Charcoal">
         <template #content>
           <h2>I occasionally write words.</h2>
@@ -60,38 +70,44 @@ import "./styles/app.scss";
       </BentoCard>
       <BentoCard :background-color="GoldenHour">
         <template #content>
-          <h2 class="contact">SAY HELLO</h2>
+          <h2 class="contact">Say Hello 👋</h2>
         </template>
       </BentoCard>
     </BentoGrid>
   </div>
 </template>
 <style lang="scss" scoped>
-h1 {
-  color: v-bind("Gunmetal");
-  text-align: center;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 700;
-  font-size: 3rem;
-}
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
-h2 {
-  color: v-bind("Birch");
-  text-align: center;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 400;
-  font-size: 3rem;
-}
+  h1 {
+    color: v-bind("Gunmetal");
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+  }
 
-// TODO: stop hardcoding this class
-.location,
-.contact {
-  color: v-bind("Gunmetal");
-}
+  h2 {
+    color: v-bind("Birch");
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+  }
 
-img {
-  width: 100%;
-  min-width: 300px;
-  border-radius: 8px;
+  // TODO: stop hardcoding this class
+  .location,
+  .contact {
+    color: v-bind("Gunmetal");
+  }
+
+  img {
+    width: 100%;
+    min-width: 300px;
+    border-radius: 8px;
+  }
 }
 </style>
